@@ -1,11 +1,14 @@
 ﻿using Application.DTOs;
 using Application.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ZoneController : ControllerBase
     {
         private readonly IZoneServices _zoneServices;
